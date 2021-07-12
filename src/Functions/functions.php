@@ -28,6 +28,17 @@ function request_get_arguments( $requestType, $args = [] ) {
 		'body' => null,
 		'version' => '1.1'
 	];
+	$argsSpecificDefaults = [
+		'Laminas\Diactoros\Request' => [
+			'body' => 'php://temp'
+		]
+	];
+
+	foreach ( $argsDefaults as $argName => $v ) {
+		if ( isset( $argsSpecificDefaults[ $requestType ][ $argName ] ) ) {
+			$argsDefaults[ $argName ] = $argsSpecificDefaults[ $requestType ][ $argName ];
+		}
+	}
 
 	foreach ( [ 'method', 'uri', 'headers', 'body', 'version' ] as $constructorArg ) {
 		$$constructorArg = isset( $args[ $constructorArg ] ) ? $args[ $constructorArg ] : $argDefaults[ $constructorArg ];
