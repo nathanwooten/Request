@@ -22,11 +22,11 @@ function request_get_arguments( $requestType, $args = [] ) {
 	}
 
 	$argsDefaults = [
-		'method' = $_SERVER[ 'REQUEST_METHOD' ],
-		'uri' = $_SERVER[ 'REQUEST_URI' ],
-		'headers' = [],
-		'body' = null,
-		'version' = '1.1'
+		'method' => $_SERVER[ 'REQUEST_METHOD' ],
+		'uri' => $_SERVER[ 'REQUEST_URI' ],
+		'headers' => [],
+		'body' => null,
+		'version' => '1.1'
 	];
 
 	foreach ( [ 'method', 'uri', 'headers', 'body', 'version' ] as $constructorArg ) {
