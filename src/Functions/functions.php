@@ -2,6 +2,17 @@
 
 namespace nathanwooten\Request\Functions;
 
+/** Example usage:
+
+$requestType = 'GuzzleHttp\Psr7\Request';
+
+$container = new Container;
+$container->set( 'Request', function ( Container $c, $args = null ) use ( $requestType ) {
+	return new $requestType( ...request_get_arguments( $requestType, $args ) );
+};
+
+*/
+
 function request_get_arguments( $requestType, $args = [] ) {
 
 	$arguments = [];
